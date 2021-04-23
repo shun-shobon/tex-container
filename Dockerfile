@@ -19,4 +19,4 @@ RUN apk add --no-cache perl curl && \
 
 WORKDIR /workdir
 
-CMD ["ash"]
+ENTRYPOINT ["latexmk"]
