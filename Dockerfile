@@ -4,7 +4,7 @@ ENV PATH /usr/local/texlive/2021/bin/x86_64-linuxmusl:$PATH
 
 WORKDIR /tmp/texlive
 
-COPY texlive.profile ./
+COPY texlive.profile sample.tex ./
 
 RUN apk add --no-cache perl curl && \
   apk add --no-cache --virtual .dev-deps wget tar && \
@@ -13,6 +13,7 @@ RUN apk add --no-cache perl curl && \
   ./install-tl --profile ./texlive.profile && \
   tlmgr install luatexja haranoaji && \
   apk del .dev-deps && \
+  lualatex sample.tex && \
   rm -rf /tmp/texlive
 
 WORKDIR /workdir
