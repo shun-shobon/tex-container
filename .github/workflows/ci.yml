@@ -21,5 +21,5 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ github.repository }}/lualatex:latest
-            ${{ github.repository }}/lualatex:${{ github.event.release.tag_name }}
+            ghcr.io/${{ github.repository_owner }}/lualatex:latest
+            ghcr.io/${{ github.repository_owner }}/lualatex:${{ github.event.release.tag_name }}
