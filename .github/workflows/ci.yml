@@ -1,11 +1,14 @@
-name: release
+name: ci
 on:
+  push:
+    branches:
+      - master
   release:
     types:
       - published
 
 jobs:
-  release:
+  build_release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -19,7 +22,7 @@ jobs:
       - uses: docker/build-push-action@v2
         with:
           context: .
-          push: true
+          push: ${{ github.event_name == 'release' }}
           labels: |
             org.opencontainers.image.created="${{ github.event.release.published_at }}"
             org.opencontainers.image.authors="Shuntaro Nishizawa <me@shun.technology> (https://github.com/shun-shobon)"
