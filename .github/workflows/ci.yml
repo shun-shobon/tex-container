@@ -21,18 +21,18 @@ jobs:
           context: .
           push: true
           labels: |
-            org.opencontainers.image.created='${{ github.event.release.published_at }}'
-            org.opencontainers.image.authors='Shuntaro Nishizawa <me@shun.technology> (https://github.com/shun-shobon)'
-            org.opencontainers.image.url='https://github.com/${{ github.repository }}'
-            org.opencontainers.image.documentation='https://github.com/${{ github.repository }}#readme'
-            org.opencontainers.image.source='https://github.com/${{ github.repository }}'
-            org.opencontainers.image.version='${{ github.event.release.tag_name }}'
-            org.opencontainers.image.revision='${{ github.sha }}'
-            org.opencontainers.image.vendor='https://github.com/${{ github.repository_owner }}'
-            org.opencontainers.image.licenses='MIT'
-            org.opencontainers.image.ref.name='lualatex-${{ github.event.release.tag_name }}'
-            org.opencontainers.image.title='LuaLaTeX'
-            org.opencontainers.image.description='LuaLaTeX image for Japanese'
+            org.opencontainers.image.created=${{ github.event.release.published_at }}
+            org.opencontainers.image.authors=Shuntaro Nishizawa <me@shun.technology> (https://github.com/shun-shobon)
+            org.opencontainers.image.url=https://github.com/${{ github.repository }}
+            org.opencontainers.image.documentation=https://github.com/${{ github.repository }}#readme
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}
+            org.opencontainers.image.version=${{ github.event.release.tag_name }}
+            org.opencontainers.image.revision=${{ github.sha }}
+            org.opencontainers.image.vendor=https://github.com/${{ github.repository_owner }}
+            org.opencontainers.image.licenses=MIT
+            org.opencontainers.image.ref.name=lualatex-${{ github.event.release.tag_name }}
+            org.opencontainers.image.title=LuaLaTeX
+            org.opencontainers.image.description=LuaLaTeX image for Japanese
           tags: |
             ghcr.io/${{ github.repository_owner }}/lualatex:latest
             ghcr.io/${{ github.repository_owner }}/lualatex:${{ github.event.release.tag_name }}
